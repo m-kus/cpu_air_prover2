@@ -69,7 +69,7 @@ fn read_memory<P: AsRef<Path>>(memory_path: P) -> Vec<MemoryEntry> {
             address: u64::from_le_bytes(entry[..8].try_into().unwrap()),
             value: entry[8..]
                 .chunks_exact(4)
-                .map(|limb| u32::from_be_bytes(limb.try_into().unwrap()))
+                .map(|limb| u32::from_le_bytes(limb.try_into().unwrap()))
                 .collect::<Vec<u32>>()
                 .try_into()
                 .unwrap(),
@@ -101,7 +101,7 @@ fn create_prover_input(
 
 fn main() {
     let args = Args::parse();
-    init_tracing("info");
+    init_tracing("debug");
 
     let private_input = read_private_input(args.private_input_file);
     let trace = read_trace(private_input.trace_path);
@@ -112,9 +112,9 @@ fn main() {
     let public_input: PublicInput =
         serde_json::from_str(&public_input_src).expect("Failed to deserialize public input");
 
-    let input = create_prover_input(&public_input, trace, memory, false);
+    let input = create_prover_input(&public_input, trace, memory, true);
 
-    let proof = prove_cairo::<Blake2sMerkleChannel>(input, false, false).expect("Prover error");
+    let proof = prove_cairo::<Blake2sMerkleChannel>(input, false, true).expect("Prover error");
 
     std::fs::write(
         args.out_file,
