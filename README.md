@@ -10,12 +10,18 @@ Make sure you have the recent Rust nightly toolchain installed.
 cargo install --git https://github.com/m-kus/cpu_air_prover2 cpu_air_prover2
 ```
 
+If you face compilation issues, clone the repo and install locally instead:
+
+```sh
+cargo install --path .
+```
+
 ## Use
 
 See https://stone-packaging.pages.dev/usage/proving
 
 > [!NOTE]  
-> Stwo currently does not support builtins
+> Stwo might not yet support all the builtins your program uses.
 
 ## Test
 

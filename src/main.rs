@@ -114,7 +114,7 @@ fn main() {
 
     let input = create_prover_input(&public_input, trace, memory, true);
 
-    let proof = prove_cairo::<Blake2sMerkleChannel>(input, false, true).expect("Prover error");
+    let proof = prove_cairo::<Blake2sMerkleChannel>(input, false, false).expect("Prover error");
 
     std::fs::write(
         args.out_file,
