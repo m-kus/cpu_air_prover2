@@ -14,6 +14,9 @@ cargo install --git https://github.com/m-kus/cpu_air_prover2 cpu_air_prover2
 
 See https://stone-packaging.pages.dev/usage/proving
 
+> [!NOTE]  
+> Stwo currently does not support builtins
+
 ## Test
 
 Clone this repo and run `make test`
