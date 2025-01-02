@@ -6,7 +6,7 @@ use stwo_cairo_prover::cairo_air::prove_cairo;
 use stwo_cairo_prover::input::memory::{MemoryBuilder, MemoryConfig};
 use stwo_cairo_prover::input::vm_import::{adapt_to_stwo_input, MemoryEntry, TraceEntry};
 use stwo_cairo_prover::input::ProverInput;
-use stwo_prover::core::vcs::blake2_merkle::Blake2sMerkleChannel;
+use stwo_cairo_prover::components::verify_instruction::prover::Blake2sMerkleChannel;
 use tracing::subscriber::set_global_default;
 use tracing_subscriber::filter::EnvFilter;
 

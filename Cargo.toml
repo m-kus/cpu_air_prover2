@@ -7,10 +7,7 @@ edition = "2021"
 name = "cpu_air_prover2"
 
 [dependencies]
-stwo_cairo_prover = { git = "https://github.com/starkware-libs/stwo-cairo", rev = "983971c4e66b55e999497370f71db2a8adfacdb7" }
-stwo-prover = { git = "https://github.com/starkware-libs/stwo", rev = "506794b", features = [
-    "parallel",
-] }
+stwo_cairo_prover = { git = "https://github.com/m-kus/stwo-cairo", rev = "e4e85bb269986d63a4b97c84cf002032b9f29318" }
 cairo-vm = { git = "https://github.com/lambdaclass/cairo-vm", rev = "3fb0344c", features = [
     "mod_builtin",
 ] }
